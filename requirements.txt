@@ -1,0 +1,29 @@
+# Nordic Analytics — Portfolio Dashboard
+# Node / npm project — see package.json for full lockfile
+# This file documents the key dependencies and their purposes
+
+# ── Runtime ──────────────────────────────────────────────
+next@16.2.6              # App framework (React + routing + SSR)
+react@19.2.4             # UI library
+react-dom@19.2.4         # DOM bindings for React
+recharts@3.8.1           # Charting library (NAV line chart, overlays)
+lucide-react@1.14.0      # Icon set (sort arrows, badges, alerts)
+clsx@2.1.1               # Conditional className utility
+
+# ── Styling ───────────────────────────────────────────────
+tailwindcss@4            # Utility-first CSS framework
+@tailwindcss/postcss@4   # PostCSS integration for Tailwind v4
+
+# ── TypeScript & Types ────────────────────────────────────
+typescript@5             # Type system
+@types/react@19          # React type definitions
+@types/react-dom@19      # ReactDOM type definitions
+@types/node@20           # Node.js type definitions
+
+# ── Dev / Linting ─────────────────────────────────────────
+eslint@9                 # Linter
+eslint-config-next@16    # Next.js ESLint ruleset
+
+# ── Node version requirement ──────────────────────────────
+# node >= 18.17.0
+# npm  >= 9.0.0

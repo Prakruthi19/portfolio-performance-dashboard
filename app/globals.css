@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────
+   NORDIC ANALYTICS — Design Tokens
+   Theme: Bloomberg Terminal Dark
+   Base: Deep navy | Accents: Amber + semantic
+───────────────────────────────────────────── */
+
+@theme inline {
+
+  /* ── Fonts ── */
+  --font-sans:  var(--font-geist-sans);
+  --font-mono:  var(--font-geist-mono);
+
+  /* ── Base surfaces ── */
+  --color-navy-950:  #070c14;
+  --color-navy-900:  #0d1117;
+  --color-navy-800:  #111823;
+  --color-navy-700:  #162032;
+  --color-navy-600:  #1c2b42;
+  --color-navy-500:  #243452;
+  --color-navy-400:  #2e4268;
+
+  /* ── Border / divider ── */
+  --color-border:        #1e2a38;
+  --color-border-subtle: #131e2b;
+
+  /* ── Text ── */
+  --color-text-primary:   #e8f0fe;
+  --color-text-secondary: #7a8fa8;
+  --color-text-muted:     #3d5166;
+
+  /* ── Amber (primary accent) ── */
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f5a623;
+  --color-amber-600: #d4890e;
+  --color-amber-900: #3d2e00;
+
+  /* ── Yellow (watch / caution) ── */
+  --color-yellow-400: #facc15;
+  --color-yellow-900: #3a2e00;
+
+  /* ── Orange (moderate risk) ── */
+  --color-orange-400: #fb923c;
+  --color-orange-900: #3d1a00;
+
+  /* ── Red (at-risk / danger) ── */
+  --color-red-400:   #f87171;
+  --color-red-500:   #ef4444;
+  --color-red-900:   #3d0000;
+
+  /* ── Pink (special callout) ── */
+  --color-pink-400:  #f472b6;
+  --color-pink-900:  #3d0020;
+
+  /* ── Green (healthy / positive) ── */
+  --color-green-400: #4ade80;
+  --color-green-500: #22c55e;
+  --color-green-900: #002d0e;
+
+  /* ── Cyan (chart / info) ── */
+  --color-cyan-400:  #22d3ee;
+  --color-cyan-900:  #002d38;
+}
+
+/* ─── Global reset & base ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #0d1117;
+  color: #e8f0fe;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ─── Scrollbar styling ─── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d1117;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2a38;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #243452;
+}
+
+/* ─── Monospaced numerals utility ─── */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-geist-mono), monospace;
+}
+
+/* ─── Selection color ─── */
+::selection {
+  background: #f5a62333;
+  color: #f5a623;
+}
