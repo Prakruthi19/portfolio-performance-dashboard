@@ -1,11 +1,5 @@
 @import "tailwindcss";
 
-/* ─────────────────────────────────────────────
-   NORDIC ANALYTICS — Design Tokens
-   Theme: Bloomberg Terminal Dark
-   Base: Deep navy | Accents: Amber + semantic
-───────────────────────────────────────────── */
-
 @theme inline {
 
   /* ── Fonts ── */

@@ -1,124 +1,53 @@
-# Nordic Analytics — Portfolio Performance Dashboard
+# Portfolio Performance Dashboard
 
-> Institutional-grade fund monitoring dashboard for private equity fund managers.
-> Built with Next.js 16, React 19, TypeScript, Tailwind CSS v4, and Recharts.
+Institutional-grade fund monitoring dashboard for private equity fund managers.
+Built with Next.js 16, React 19, TypeScript, Tailwind CSS v4, and Recharts.
 
 ---
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js >= 18.17.0
-- npm >= 9.0.0
-
-### Installation
+## Running Locally
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/your-org/nordic-dashboard.git
-cd nordic-dashboard
-
-# 2. Install dependencies
+git clone https://github.com/your-org/portfolio-performance-dashboard.git
+cd portfolio-performance-dashboard
 npm install
-
-# 3. Start the development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Production Build
-
-```bash
-npm run build
-npm start
-```
+Open [http://localhost:3000](http://localhost:3000). Node >= 18.17 required.
 
 ---
 
-## Project Structure
+## Technical Decisions
 
-```
-nordic-dashboard/
-├── app/
-│   ├── components/        # UI components (KPI cards, chart, table, fund selector)
-│   ├── data/              # funds.json static dataset
-│   ├── hooks/             # Custom React hooks (useFund, useSort)
-│   ├── lib/               # Utility functions (formatters, helpers)
-│   ├── types/             # TypeScript interfaces
-│   ├── globals.css        # Global styles + Tailwind theme tokens
-│   ├── layout.tsx         # Root layout
-│   └── page.tsx           # Dashboard entry point
-├── public/
-├── requirements.txt       # Human-readable dependency manifest
-├── package.json
-└── README.md
-```
+**Next.js App Router** — file-based routing, first-class TypeScript, production-ready build pipeline with zero config.
 
----
+**Tailwind CSS v4** — utility-first approach suits dense institutional UI. CSS variable theming keeps the dark navy token system maintainable.
 
-## Key Technical Decisions
+**Recharts** — React-native, TypeScript-friendly, supports multi-line overlays out of the box for the fund comparison feature.
 
-### Next.js App Router
-Chosen for its file-based routing, React Server Components support, and first-class
-TypeScript integration. Even though this is a single-page dashboard, Next.js gives us
-a production-ready build pipeline with zero config.
+**Static JSON import** — `funds.json` imported directly as a module. No backend needed, fully static, deployable to any CDN.
 
-### Tailwind CSS v4
-Utility-first approach allows rapid iteration on the dense institutional UI without
-writing custom CSS files. Tailwind v4's CSS variable-based theming makes our dark
-navy color system easy to maintain and extend.
+**clsx** — keeps conditional className logic readable for watch/risk row states and active tab styles.
 
-### Recharts for NAV Chart
-Recharts is React-native (no DOM manipulation), composes well with TypeScript, and
-supports multi-line overlays out of the box — required for the multi-fund comparison
-bonus feature.
-
-### Static JSON Import (No Backend)
-`funds.json` is imported directly as a module. This keeps the app fully static,
-deployable to any CDN, and avoids infrastructure complexity for a dashboard of this
-scope.
-
-### clsx for Conditional Classes
-Keeps component className logic readable when applying conditional styles (watch/risk
-row highlighting, active fund tab states).
-
----
-
-## Features
-
-- [x] Fund selector (tab-based, reactive)
-- [x] KPI summary cards (IRR, TVPI, DPI, RVPI, NAV)
-- [x] NAV performance line chart (12-month history)
-- [x] Portfolio company table with sortable columns
-- [x] Watch row highlighting (amber)
-- [x] At-risk row highlighting (red)
-- [x] Negative EBITDA margin alert banner
-- [x] Multi-fund NAV overlay (toggle comparison)
-- [x] Responsive layout
+**KPI thresholds (design decision)** — trend arrows on KPI cards use standard private equity benchmarks: IRR ≥ 15% = strong, TVPI ≥ 2x = capital doubled, DPI ≥ 1x = full capital returned to LPs. These were not specified in the brief — applied from PE industry knowledge to make the dashboard feel functional rather than decorative. Can be removed or made configurable.
 
 ---
 
 ## Known Limitations
 
-- Data is static (no live API). Refreshing the page resets all UI state.
-- No authentication or role-based access control.
-- Currency is hardcoded as EUR. Multi-currency support would require an exchange rate feed.
-- Chart does not support export to PNG/PDF out of the box.
+- Data is static — no live API, page refresh resets all UI state
+- Currency hardcoded as EUR — multi-currency would require an exchange rate feed
+- No chart export (PNG/PDF) out of the box
+- No authentication or role-based access
 
 ---
 
 ## What I Would Add Given More Time
 
-1. **Export to PDF** — generate a one-page fund tear sheet from dashboard state
-2. **Date range filter** — allow the NAV chart to show custom time windows
-3. **Benchmark overlay** — plot a benchmark index (e.g. MSCI Europe) on the NAV chart
-4. **Drill-down company modal** — click a portfolio row to see full company detail
-5. **Animated transitions** — smooth number countup on KPI cards when switching funds
-6. **Unit tests** — Jest + React Testing Library for hooks and formatter utilities
-7. **Storybook** — isolated component development and visual regression testing
-
----
-
-*Nordic Analytics — Confidential*
+1. **Date range filter** — custom time windows on the NAV chart
+2. **Benchmark overlay** — plot MSCI Europe or similar index alongside NAV
+3. **Company drill-down modal** — click a portfolio row for full detail view
+4. **PDF tear sheet export** — one-page fund summary from dashboard state
+5. **Animated KPI transitions** — number countup when switching funds
+6. **Unit tests** — Jest + React Testing Library for hooks and formatters
