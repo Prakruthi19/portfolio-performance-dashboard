@@ -8,7 +8,7 @@ Built with Next.js 16, React 19, TypeScript, Tailwind CSS v4, and Recharts.
 ## Running Locally
 
 ```bash
-git clone https://github.com/your-org/portfolio-performance-dashboard.git
+git clone https://github.com/Prakruthi19/portfolio-performance-dashboard.git
 cd portfolio-performance-dashboard
 npm install
 npm run dev
